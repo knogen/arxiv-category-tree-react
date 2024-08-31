@@ -1,3 +1,18 @@
+# arxiv-category-tree-react
+this is a arxiv category tree demo
+
+source data from:
+https://arxiv.org/category_taxonomy
+
+## develop log
+
+```
+# add antd
+npm install antd --save
+```
+
+++++++
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
