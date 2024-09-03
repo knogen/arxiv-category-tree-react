@@ -11,7 +11,13 @@ https://arxiv.org/category_taxonomy
 npm install antd --save
 ```
 
-++++++
+## deployment place
+https://arxiv-category-tree-react.knogen.com/
+
+## component doc
+[ant-design](https://ant-design.antgroup.com/components/descriptions-cn)
+
+---
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
