@@ -80,13 +80,14 @@ function GuideGird() {
 export default function Home() {
   const [expandedKeys, setExpandedKeys] = useState<string[]>([]);
   const [categoryDetailFlag, setCategoryDetailFlag] = useState(false);
+  const [TreeDTreeetailFlag, setTreeDetailFlag] = useState(false);
 
   return (
     <main className="flex min-h-screen flex-col items-left p-4 sm:p-24">
       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} >
         <Col className="gutter-row font-bold mb-10" sm={10} xs={24}>
-          <div className="text-4xl text-black-400">arxiv</div>
-          <div className="text-5xl text-gray-400/75">Category Ontology</div>
+          <div className="text-4xl text-black-400">arXiv</div>
+          <div className="text-5xl text-gray-400/75">Category Taxonomy</div>
         </Col>
         <Col className="gutter-row mb-10" sm={14} xs={24}>
           <GuideGird />
@@ -101,6 +102,9 @@ export default function Home() {
         </Button>
         <Popover content="show category description">
           <Switch value={categoryDetailFlag} onChange={(checked) => { setCategoryDetailFlag(checked) }} checkedChildren="show" unCheckedChildren="hidden" defaultChecked />
+        </Popover>
+        <Popover content="Show the hierarchical labels of trees.">
+          <Switch value={TreeDTreeetailFlag} onChange={(checked) => { setTreeDetailFlag(checked) }} checkedChildren="show" unCheckedChildren="hidden" defaultChecked />
         </Popover>
       </Space>
       <DirectoryTree
@@ -120,14 +124,14 @@ export default function Home() {
           if (data.level === 0) {
             return (
               <div>
-                <Button type="link"><span className="text-sm text-gray-400/75">Group:</span><span className="text-3xl text-blue-500">{data.title}</span></Button>
+                <Button type="link">{TreeDTreeetailFlag && (<span className="text-sm text-gray-400/75">Group:</span>)}<span className="text-3xl text-blue-500">{data.title}</span></Button>
               </div>
             )
           } else if (data.level === 1) {
             return (
               <div>
                 <Button type="link">
-                  <span className="text-sm text-gray-400/75">Archive:</span>
+                  {TreeDTreeetailFlag && (<span className="text-sm text-gray-400/75">Archive:</span>)}
                   <span className="text-2xl text-slate-500 hover:text-blue-600">{data.title}</span>
                   {(data as any).id !== data.title ? <span className="text-sm">({(data as any).id})</span> : <></>}
                   <Tooltip title="category count" color="blue" placement="right" className="text-sm text-slate-500/75 hover:text-blue-600">({data.children.length})</Tooltip>
@@ -149,8 +153,9 @@ export default function Home() {
                     <Divider className="mb-0" />
                   </>
                 ) : (
-                  <><span className="text-xs text-gray-400/75">Category: </span>
-                  <span className="text-sm text-slate-500 hover:text-blue-600 ml-2">{data.title}</span></>
+                  <>
+                    {TreeDTreeetailFlag && (<span className="text-xs text-gray-400/75">Category: </span>)}
+                    <span className="text-sm text-slate-500 hover:text-blue-600 ml-2">{data.title}</span></>
                 )}
               </>
             );

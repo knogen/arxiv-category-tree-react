@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "arxiv category ontology",
-  description: "an arxiv category ontology view",
+  title: "arXiv Category Taxonomy",
+  description: "an arXiv Category Taxonomy view",
 };
 
 import {
@@ -21,7 +21,7 @@ const Footer: React.FC<FooterProps> = ({ githubUrl }) => {
   return (
     <footer className="bg-gray-600/50 text-white py-4">
       <div className="container mx-auto px-4 flex justify-center items-center">
-        <a 
+        <a
           href={githubUrl}
           target="_blank"
           rel="noopener noreferrer"
